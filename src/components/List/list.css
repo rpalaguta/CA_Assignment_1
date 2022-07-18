@@ -1,0 +1,41 @@
+tr {
+    width: 30px;
+    height: 30px;
+}
+
+.listMain {
+    width: 80%;
+    height: 100%;
+    background-color: rgba(229,238,249, 0.85);
+    margin: 50px auto;
+}
+
+.listTable {
+    width: 100%;
+}
+
+td img {
+    width: 100px;
+    height: 100px;
+}
+
+thead {
+    position: sticky;
+    background-color: rgba(19,52,92, 0.9);
+    top: 74px;
+    color: #027DBC;
+}
+
+th {
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin: 10px;
+    cursor: pointer;
+}

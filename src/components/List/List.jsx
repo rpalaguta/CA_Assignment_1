@@ -16,13 +16,13 @@ export default function List() {
         return ' Loading...'
     }
 
-    function paginationHandler(page, action) {
+    function paginationHandler(action) {
         switch (action) {
             case 'first':
                 setPage(1)
                 break;
             case 'previous':
-                if(page == 1) {
+                if(page === 1) {
                     break
                 }
                 setPage(page - 1)
@@ -31,9 +31,10 @@ export default function List() {
                 setPage(page + 1)
                 break;
             case 'last':
-                // setPage(characters.info.pages)
-                break
-            
+                setPage(42) //išsiaiškinti kaip gauti page count iš 'res.info.pages'
+                break;
+            default:
+                break;
         }
     }
 
@@ -59,9 +60,31 @@ export default function List() {
 
     return (
         <div className="listMain">
-            <div className="listHeader"></div>
+            {/* <div className="listHeader">
+            <label className="filter">
+                <input type="checkbox" id='filterImg' name='filterImg' value='image'/>
+                <span>Image</span>
+                <div> | </div>
+                <input type="checkbox" id='filterId' name='filterId' value='id'/>
+                <span>ID</span>
+                <input type="checkbox" id='filterName' name='filterName' value='name'/>
+                <span>Name</span>
+                <input type="checkbox" id='filterStatus' name='filterStatus' value='status'/>
+                <span>Status</span>
+                <input type="checkbox" id='filterSpecies' name='filterSpecies' value='species'/>
+                <span>Species</span>
+                <input type="checkbox" id='filterType' name='filterType' value='type'/>
+                <span>Type</span>
+                <input type="checkbox" id='filterGender' name='filterGender' value='gender'/>
+                <span>Gender</span>
+                <input type="checkbox" id='filterOrigin' name='filterOrigin' value='origin'/>
+                <span>Origin</span>
+                <input type="checkbox" id='filterLocation' name='filterLocation' value='location'/>
+                <span>Location</span>
+            </label>
+            </div> */}
             <div className="listContent">
-                <table className="listTable highlight responsive-table sticky-header">
+                <table className="listTable highlight responsive-table">
                     <thead className="tableHead">
                         <tr>
                             <th>Image</th>
@@ -80,10 +103,11 @@ export default function List() {
                     </tbody>
                 </table>
                 <div className="pagination">
-                    <div className="button firstPage" onClick={(e) => paginationHandler(page, 'first')}> first</div>
-                    <div className="button prevPage" onClick={(e) => paginationHandler(page, 'previous')}> previous</div>
-                    <div className="button nextPage" onClick={(e) => paginationHandler(page, 'next')}> next</div>
-                    <div className="button lastPage"> last</div>
+                    <div className="button firstPage" onClick={(e) => paginationHandler('first')}> first</div>
+                    <div className="button prevPage" onClick={(e) => paginationHandler('previous')}> previous</div>
+                    <div className="pageDisplay">{page}</div>
+                    <div className="button nextPage" onClick={(e) => paginationHandler('next')}> next</div>
+                    <div className="button lastPage" onClick={(e) => paginationHandler('last')}> last</div>
                 </div>
             </div>
         </div>

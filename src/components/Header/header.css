@@ -1,4 +1,4 @@
-.header {
+.Navigation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,4 +7,5 @@
     background-color: rgba(42,47,71, 1);
     position: sticky;
     top: 0;
+    z-index: 2;
 }

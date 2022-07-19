@@ -1,6 +1,14 @@
-tr {
-    width: 30px;
-    height: 30px;
+.listHeader {
+    margin: 10px;
+    display: flex;
+}
+
+.img {
+    z-index: 10;
+}
+
+.filter {
+    display: flex;
 }
 
 .listMain {
@@ -15,8 +23,8 @@ tr {
 }
 
 td img {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 thead {
@@ -27,7 +35,8 @@ thead {
 }
 
 th {
-    text-align: center;
+    /* text-align: center; */
+    /* gap: 1px; */
 }
 
 .pagination {
@@ -38,4 +47,12 @@ th {
 .button {
     margin: 10px;
     cursor: pointer;
+    user-select: none;
+
+}
+
+.pageDisplay {
+    margin: 10px;
+    cursor: default;
+    user-select: none;
 }

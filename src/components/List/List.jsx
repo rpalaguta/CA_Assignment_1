@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import { useEffect, useState } from "react";
+import * as React from 'react';
 import './list.css'
+
 
 export default function List() {
 
@@ -13,7 +18,11 @@ export default function List() {
     }, [page])
 
     if(!characters) {
-        return ' Loading...'
+        return (
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        )
     }
 
     function paginationHandler(action) {
@@ -58,33 +67,27 @@ export default function List() {
         )
     }
 
+    // function filterTable() {
+
+    // }
+
     return (
         <div className="listMain">
-            {/* <div className="listHeader">
-            <label className="filter">
-                <input type="checkbox" id='filterImg' name='filterImg' value='image'/>
-                <span>Image</span>
-                <div> | </div>
-                <input type="checkbox" id='filterId' name='filterId' value='id'/>
-                <span>ID</span>
-                <input type="checkbox" id='filterName' name='filterName' value='name'/>
-                <span>Name</span>
-                <input type="checkbox" id='filterStatus' name='filterStatus' value='status'/>
-                <span>Status</span>
-                <input type="checkbox" id='filterSpecies' name='filterSpecies' value='species'/>
-                <span>Species</span>
-                <input type="checkbox" id='filterType' name='filterType' value='type'/>
-                <span>Type</span>
-                <input type="checkbox" id='filterGender' name='filterGender' value='gender'/>
-                <span>Gender</span>
-                <input type="checkbox" id='filterOrigin' name='filterOrigin' value='origin'/>
-                <span>Origin</span>
-                <input type="checkbox" id='filterLocation' name='filterLocation' value='location'/>
-                <span>Location</span>
-            </label>
-            </div> */}
+            <div className="filters">
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Image" id='filterImg'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="ID" id='filterId'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Name" id='filterName'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Status" id='filterStatus'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Species" id='filterSpecies'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Type" id='filterType'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Gender" id='filterGender'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Origin" id='filterOrigin'/>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Location" id='filterLocation'/>
+                </FormGroup>
+            </div>
             <div className="listContent">
-                <table className="listTable highlight responsive-table">
+                <table className="listTable centered highlight responsive-table">
                     <thead className="tableHead">
                         <tr>
                             <th>Image</th>
